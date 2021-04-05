@@ -71,13 +71,16 @@ with open(electiondata_path) as electiondata_handler:
 # print(candidate.append([row[2]]))
 
 print(f"Election Results")
-print(f"--------------------------------")
+print(f"----------------------")
 print(f"Total Votes: {total_votes}")
-print(f"--------------------------------")
-print(f"Khan: {khan_ratio} {khan_votes}")
-print(f"Correy: {correy_ratio} {correy_votes}")
-print(f"Li: {li_ratio} {li_votes}")
-print(f"O'Tooley: {otooley_ratio} {otooley_votes}")
+print(f"----------------------")
+print(f"Khan: {khan_ratio}% ({khan_votes})")
+print(f"Correy: {correy_ratio}% ({correy_votes})")
+print(f"Li: {li_ratio}% ({li_votes})")
+print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})")
+print(f"----------------------")
+print(f"Winner: {}")
+print(f"----------------------")
 
 
 
