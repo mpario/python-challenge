@@ -9,24 +9,16 @@ county = []
 candidate = []
 #total_votes = []
 
-prof_change = []
-average_change = []
-inc_profits = []
-dec_profits = []
-
 khan_count = []
 correy_count = []
 li_count = []
 otooley_count = []
 
-# khan_count = 0
-# correy_count = 0
-# li_count = 0
-# otooley_count = 0
-khan_vote = 0
-correy_vote = 0
-li_vote = 0
-otooley_vote = 0
+
+khan_votes = 0
+correy_votes = 0
+li_votes = 0
+otooley_votes = 0
 
 
 #open and read csv file
@@ -45,20 +37,22 @@ with open(electiondata_path) as electiondata_handler:
 		candidate.append([row[2]])
 		if (row[2] == "Khan"):
 			khan_count.append(candidate)
-			#khan_count += 1
-			khan_vote = len(khan_count)
+			khan_votes = len(khan_count)
+			khan_ratio = round((khan_votes / total_votes) * 100, 3)
 		elif (row[2] == "Correy"):
 			correy_count.append(candidate)
-			#correy_count += 1
-			correy_vote = len(correy_count)
+			correy_votes = len(correy_count)
+			correy_ratio = round((correy_votes / total_votes) * 100, 3)
 		elif (row[2] == "Li"):
 			li_count.append(candidate)
-			#li_count += 1
-			li_vote = len(li_count)
+			li_votes = len(li_count)
+			li_ratio = round((li_votes / total_votes) * 100, 3)
 		elif (row[2] == "O'Tooley"):
 			otooley_count.append(candidate)
-			#otooley_count += 1
-			otooley_vote = len(otooley_count)
+			otooley_votes = len(otooley_count)
+			otooley_ratio = round((otooley_votes / total_votes) * 100, 3)
+
+
 
 		# candidate.append([row[2]])
 		# if (candidate == "Khan"):
@@ -80,7 +74,10 @@ print(f"Election Results")
 print(f"--------------------------------")
 print(f"Total Votes: {total_votes}")
 print(f"--------------------------------")
-print(f"Khan: {khan_vote}")
-print(f"Correy: {correy_vote}")
-print(f"Li: {li_vote}")
-print(f"O'Tooley: {otooley_vote}")
+print(f"Khan: {khan_ratio} {khan_votes}")
+print(f"Correy: {correy_ratio} {correy_votes}")
+print(f"Li: {li_ratio} {li_votes}")
+print(f"O'Tooley: {otooley_ratio} {otooley_votes}")
+
+
+
