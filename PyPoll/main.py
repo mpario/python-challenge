@@ -23,19 +23,19 @@ with open(electiondata_path) as electiondata_handler:
 	#print(electiondata_header)
 
 	for row in electiondata_object:
-		#Total Months
+		#Total Votes
 		voter_id.append(row[0])
 		total_votes = len(voter_id)
 		#Total
-		prof_row = prof_loss.append(int(row[1]))
-		net_total = sum(prof_loss)
+		# prof_row = prof_loss.append(int(row[1]))
+		# net_total = sum(prof_loss)
 
 
 print(f"Election Results")
 print(f"--------------------------------")
-print(f"Total Votes: {total_month_count}")
+print(f"Total Votes: {total_votes}")
 print(f"--------------------------------")
-print(f"Khan: {net_total}")
-print(f"Correy: {average_change}")
+print(f"Khan: ")
+print(f"Correy: ")
 print(f"Li: ")
 print(f"O'Tooley: ")
