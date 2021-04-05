@@ -14,10 +14,15 @@ average_change = []
 inc_profits = []
 dec_profits = []
 
-khan_count = 0
-correy_count = 0
-li_count = 0
-otooley_count = 0
+khan_count = []
+correy_count = []
+li_count = []
+otooley_count = []
+
+# khan_count = 0
+# correy_count = 0
+# li_count = 0
+# otooley_count = 0
 khan_vote = 0
 correy_vote = 0
 li_vote = 0
@@ -37,20 +42,37 @@ with open(electiondata_path) as electiondata_handler:
 		total_votes = len(voter_id)
 		
 		# Per Candidate
-
 		candidate.append([row[2]])
-		if (candidate == "Khan"):
-			khan_count += 1
+		if (row[2] == "Khan"):
+			khan_count.append(candidate)
+			#khan_count += 1
 			khan_vote = len(khan_count)
-		elif (candidate == "Correy"):
-			correy_count += 1
+		elif (row[2] == "Correy"):
+			correy_count.append(candidate)
+			#correy_count += 1
 			correy_vote = len(correy_count)
-		elif (candidate == "Li"):
-			li_count += 1
+		elif (row[2] == "Li"):
+			li_count.append(candidate)
+			#li_count += 1
 			li_vote = len(li_count)
-		elif (candidate == "O'Tooley"):
-			otooley_count += 1
+		elif (row[2] == "O'Tooley"):
+			otooley_count.append(candidate)
+			#otooley_count += 1
 			otooley_vote = len(otooley_count)
+
+		# candidate.append([row[2]])
+		# if (candidate == "Khan"):
+		# 	khan_count += 1
+		# 	khan_vote = len(khan_count)
+		# elif (candidate == "Correy"):
+		# 	correy_count += 1
+		# 	correy_vote = len(correy_count)
+		# elif (candidate == "Li"):
+		# 	li_count += 1
+		# 	li_vote = len(li_count)
+		# elif (candidate == "O'Tooley"):
+		# 	otooley_count += 1
+		# 	otooley_vote = len(otooley_count)
 
 # print(candidate.append([row[2]]))
 
