@@ -10,7 +10,7 @@ prof_loss = []
 net_total = []
 
 prof_change = []
-average_change = []
+# average_change = []
 
 
 #open and read csv file
@@ -37,15 +37,15 @@ with open(budgetdata_path) as budgetdata_handler:
 			prof_change.append(change)
 		elif (row > (row + 1)):
 			change = (row - (row + 1))
-			prof_change.append(avgchange)
+			prof_change.append(change)
 		else:
 			change == 0
-			prof_change.append(avgchange)
+			prof_change.append(change)
 
 
 
 	# print(f"{avgchange}")
-	# print (type(prof_change))
+	print(prof_change)
 	net_prof = sum(prof_change)
 	average_change = net_prof / total_month_count
 
