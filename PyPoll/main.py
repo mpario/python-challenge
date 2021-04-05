@@ -26,7 +26,6 @@ with open(electiondata_path) as electiondata_handler:
 	#when a command is made, electiondata_object will pass it in a list (separated by commas)
 	electiondata_object = csv.reader(electiondata_handler, delimiter=',')
 	electiondata_header = next(electiondata_object)
-	#print(electiondata_header)
 
 	for row in electiondata_object:
 		# Total Votes
@@ -52,35 +51,22 @@ with open(electiondata_path) as electiondata_handler:
 			otooley_votes = len(otooley_count)
 			otooley_ratio = round((otooley_votes / total_votes) * 100, 3)
 
+		#Winning candidate
+		winning_candidate = {"Khan":khan_votes, "Correy":correy_votes, "Li":li_votes, "O'Tooley":otooley_votes}
+		winner = max(winning_candidate, key=winning_candidate.get)
 
-
-		# candidate.append([row[2]])
-		# if (candidate == "Khan"):
-		# 	khan_count += 1
-		# 	khan_vote = len(khan_count)
-		# elif (candidate == "Correy"):
-		# 	correy_count += 1
-		# 	correy_vote = len(correy_count)
-		# elif (candidate == "Li"):
-		# 	li_count += 1
-		# 	li_vote = len(li_count)
-		# elif (candidate == "O'Tooley"):
-		# 	otooley_count += 1
-		# 	otooley_vote = len(otooley_count)
-
-# print(candidate.append([row[2]]))
 
 print(f"Election Results")
-print(f"----------------------")
+print(f"-----------------------")
 print(f"Total Votes: {total_votes}")
-print(f"----------------------")
+print(f"-----------------------")
 print(f"Khan: {khan_ratio}% ({khan_votes})")
 print(f"Correy: {correy_ratio}% ({correy_votes})")
 print(f"Li: {li_ratio}% ({li_votes})")
 print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})")
-print(f"----------------------")
-print(f"Winner: {}")
-print(f"----------------------")
+print(f"-----------------------")
+print(f"Winner: {winner}")
+print(f"-----------------------")
 
 
 
