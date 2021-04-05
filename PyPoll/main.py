@@ -1,3 +1,14 @@
+#Coded by: Mehul Parekh
+
+## PyPoll
+# * In this challenge, you are tasked with helping a small, rural town modernize its vote counting process.
+# * You will be give a set of poll data called [election_data.csv](PyPoll/Resources/election_data.csv). The dataset is composed of three columns: `Voter ID`, `County`, and `Candidate`. Your task is to create a Python script that analyzes the votes and calculates each of the following:
+#   * The total number of votes cast
+#   * A complete list of candidates who received vottota
+#   * The percentage of votes each candidate won
+#   * The total number of votes each candidate won
+#   * The winner of the election based on popular vote.
+
 import os
 import csv
 
@@ -5,16 +16,13 @@ electiondata_path = os.path.join('Resources', 'election_data.csv')
 
 #empty list to store data
 voter_id = []
-county = []
 candidate = []
-#total_votes = []
-
 khan_count = []
 correy_count = []
 li_count = []
 otooley_count = []
 
-
+#initialized variables
 khan_votes = 0
 correy_votes = 0
 li_votes = 0
