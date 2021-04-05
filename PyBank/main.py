@@ -11,10 +11,6 @@ net_total = []
 
 prof_change = []
 average_change = []
-inc_profits = []
-dec_profits = []
-
-#prof_row = int(wrestler_data[3])
 
 
 #open and read csv file
@@ -37,15 +33,21 @@ with open(budgetdata_path) as budgetdata_handler:
 	for row in prof_loss:
 		#Average Change
 		if (row < (row + 1)):
-		 	prof_change = ((row + 1) - row)
+			change = ((row + 1) - row)
+			prof_change.append(change)
 		elif (row > (row + 1)):
-			prof_change = (row - (row + 1))
+			change = (row - (row + 1))
+			prof_change.append(avgchange)
 		else:
-			prof_change == 0
+			change == 0
+			prof_change.append(avgchange)
 
 
-	print(f"{prof_change}")
-	# average_change = prof_change / total_month_count
+
+	# print(f"{avgchange}")
+	# print (type(prof_change))
+	net_prof = sum(prof_change)
+	average_change = net_prof / total_month_count
 
 
 		#	pass
