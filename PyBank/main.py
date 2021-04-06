@@ -20,6 +20,7 @@ date = []
 total_month_count = []
 prof_loss = []
 net_total = []
+change = []
 
 prof_change = []
 # average_change = []
@@ -39,16 +40,23 @@ with open(budgetdata_path) as budgetdata_handler:
 		prof_loss.append(int(row[1]))
 		net_total = sum(prof_loss)
 	
-	
+	#Average Change
 	for row in range(len(prof_loss) - 1):
-		#Average Change
 		change = prof_loss[row + 1] - prof_loss[row]
 		prof_change.append(change)
 		net_prof = sum(prof_change)
 		average_change = round(net_prof / len(prof_change), 2)
 
-		#Greatest Increase/Decrease in Profits
-		print(max(change))
+	#Greatest Increase/Decrease in Profits
+	for row in range(len(prof_change)):
+		maxval = prof_change[row]
+		print(maxval)
+		# print(prof_change.min)
+
+		# max = prof_change.sort()
+		# print(maxval)
+		
+
 
 
 		# for row in prof_change:
