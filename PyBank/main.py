@@ -49,8 +49,9 @@ with open(budgetdata_path) as budgetdata_handler:
 
 	#Greatest Increase/Decrease in Profits
 	for row in range(len(prof_change)):
-		maxval = prof_change[row]
-		print(maxval)
+		maxval = max(prof_change)
+		minval = min(prof_change)		
+		#print(maxval)
 		# print(prof_change.min)
 
 		# max = prof_change.sort()
@@ -95,8 +96,8 @@ print(f"--------------------------------")
 print(f"Total Months: {total_month_count}")
 print(f"Total: {net_total}")
 print(f"Average Change: {average_change}")
-print(f"Greatest Increase in Profits: ")
-print(f"Greatest Decrease in Profits: ")
+print(f"Greatest Increase in Profits: {maxval}")
+print(f"Greatest Decrease in Profits: {minval}")
 
 
 #		total_month_count = len(date_count)
