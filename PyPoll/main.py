@@ -84,8 +84,10 @@ output_path = os.path.join("Analysis", "ElectionResults.txt")
 with open(output_path, 'w', newline='') as txthandler:
 	# Initialize csv.writer
 	csvwriter = csv.writer(txthandler, delimiter=',')
+	txthandler.writer(str(pypoll()))
+
 	# Write all rows 
-	csvwriter =csv.writer(pypoll())
+	#csvwriter = csv.writerow(pypoll())
 
 	# csvwriter.writerow(print(f"Election Results"))
 	# csvwriter.writerow(print(f"-----------------------"))
