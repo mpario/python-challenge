@@ -30,7 +30,6 @@ with open(budgetdata_path) as budgetdata_handler:
 	#when a command is made, budgetdata_object will pass it in a list (separated by commas)
 	budgetdata_object = csv.reader(budgetdata_handler, delimiter=',')
 	budgetdata_header = next(budgetdata_object)
-	#print(budgetdata_header)
 
 	for row in budgetdata_object:
 		#Total Months
@@ -40,15 +39,32 @@ with open(budgetdata_path) as budgetdata_handler:
 		prof_loss.append(int(row[1]))
 		net_total = sum(prof_loss)
 	
-	# print(f"{prof_loss}")	
 	
 	for row in range(len(prof_loss) - 1):
 		#Average Change
-			change = prof_loss[row + 1] - prof_loss[row]
-			prof_change.append(change)
-			
-			net_prof = sum(prof_change)
-			average_change = round(net_prof / len(prof_change), 2)
+		change = prof_loss[row + 1] - prof_loss[row]
+		prof_change.append(change)
+		net_prof = sum(prof_change)
+		average_change = round(net_prof / len(prof_change), 2)
+
+		#Greatest Increase/Decrease in Profits
+		print(max(change))
+
+
+		# for row in prof_change:
+		# 	valuemax = prof_change[0]
+		# 	print(value)
+		# 	print(value.min)
+
+			# if value < value + 1
+			# 	print(value + 1)
+			# else
+			# 	print(value)
+
+
+			# if row > row + 1
+			# print(prof_change.max)
+			# print(prof_change.min)
 
 
 		#	pass
@@ -65,7 +81,6 @@ with open(budgetdata_path) as budgetdata_handler:
 		#Greatest Increase in Profits
 
 		#Greatest Decrease in Profits
-
 
 print(f"Financial Analysis")
 print(f"--------------------------------")
