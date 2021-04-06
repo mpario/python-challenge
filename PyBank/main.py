@@ -30,24 +30,13 @@ with open(budgetdata_path) as budgetdata_handler:
 	
 	# print(f"{prof_loss}")	
 	
-	for row in prof_loss:
+	for row in range(len(prof_loss) - 1):
 		#Average Change
-		if (row < (row + 1)):
-			change = ((row + 1) - row)
+			change = prof_loss[row + 1] - prof_loss[row]
 			prof_change.append(change)
-		elif (row > (row + 1)):
-			change = (row - (row + 1))
-			prof_change.append(change)
-		else:
-			change == 0
-			prof_change.append(change)
-
-
-
-	# print(f"{avgchange}")
-	print(prof_change)
-	net_prof = sum(prof_change)
-	average_change = net_prof / total_month_count
+			
+			net_prof = sum(prof_change)
+			average_change = round(net_prof / len(prof_change), 2)
 
 
 		#	pass
