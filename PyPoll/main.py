@@ -80,27 +80,39 @@ pypoll()
 
 # File to write to:
 output_path = os.path.join("Analysis", "ElectionResults.txt")
-# Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w', newline='') as txthandler:
 	# Initialize csv.writer
 	csvwriter = csv.writer(txthandler, delimiter=',')
-	txthandler.writer(str(pypoll()))
+	csvwriter = csvwriter.writerow(str(pypoll()))
 
-	# Write all rows 
-	#csvwriter = csv.writerow(pypoll())
+# 	csvwriter.write(print(f"Election Results"))
+# 	csvwriter.write(print(f"-----------------------"))
+# 	csvwriter.write(print(f"Total Votes: {total_votes}"))
+# 	csvwriter.write(print(f"-----------------------"))
+# 	csvwriter.write(print(f"Khan: {khan_ratio}% ({khan_votes})"))
+# 	csvwriter.write(print(f"Correy: {correy_ratio}% ({correy_votes})"))
+# 	csvwriter.write(print(f"Li: {li_ratio}% ({li_votes})"))
+# 	csvwriter.write(print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})"))
+# 	csvwriter.write(print(f"-----------------------"))
+# 	csvwriter.write(print(f"Winner: {winner}"))
+# 	csvwriter.write(print(f"-----------------------"))
 
-	# csvwriter.writerow(print(f"Election Results"))
-	# csvwriter.writerow(print(f"-----------------------"))
-	# csvwriter.writerow(print(f"Total Votes: {total_votes}"))
-	# csvwriter.writerow(print(f"-----------------------"))
-	# csvwriter.writerow(print(f"Khan: {khan_ratio}% ({khan_votes})"))
-	# csvwriter.writerow(print(f"Correy: {correy_ratio}% ({correy_votes})"))
-	# csvwriter.writerow(print(f"Li: {li_ratio}% ({li_votes})"))
-	# csvwriter.writerow(print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})"))
-	# csvwriter.writerow(print(f"-----------------------"))
-	# csvwriter.writerow(print(f"Winner: {winner}"))
-	# csvwriter.writerow(print(f"-----------------------"))
-
+# # File to write to:
+# 	output_path = os.path.join("Analysis", "ElectionResults.txt")
+# 	with open(output_path, 'w', newline='') as txthandler:
+# 		csvwriter = csv.writer(txthandler, delimiter=',')
+		
+# 		csvwriter.write(print(f"Election Results"))
+# 		csvwriter.write(print(f"-----------------------"))
+# 		csvwriter.write(print(f"Total Votes: {total_votes}"))
+# 		csvwriter.write(print(f"-----------------------"))
+# 		csvwriter.write(print(f"Khan: {khan_ratio}% ({khan_votes})"))
+# 		csvwriter.write(print(f"Correy: {correy_ratio}% ({correy_votes})"))
+# 		csvwriter.write(print(f"Li: {li_ratio}% ({li_votes})"))
+# 		csvwriter.write(print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})"))
+# 		csvwriter.write(print(f"-----------------------"))
+# 		csvwriter.write(print(f"Winner: {winner}"))
+# 		csvwriter.write(print(f"-----------------------"))
     
 
 
