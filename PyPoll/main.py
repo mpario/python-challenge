@@ -8,11 +8,12 @@
 #   * The percentage of votes each candidate won
 #   * The total number of votes each candidate won
 #   * The winner of the election based on popular vote.
+#	* In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 
 import os
 import csv
 
-electiondata_path = os.path.join('Resources', 'election_data.csv')
+electiondata_inputpath = os.path.join('Resources', 'election_data.csv')
 
 #empty list to store data
 voter_id = []
@@ -30,7 +31,7 @@ otooley_votes = 0
 
 
 #open and read csv file
-with open(electiondata_path) as electiondata_handler:
+with open(electiondata_inputpath) as electiondata_handler:
 	#when a command is made, electiondata_object will pass it in a list (separated by commas)
 	electiondata_object = csv.reader(electiondata_handler, delimiter=',')
 	electiondata_header = next(electiondata_object)
@@ -75,6 +76,22 @@ print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})")
 print(f"-----------------------")
 print(f"Winner: {winner}")
 print(f"-----------------------")
+
+
+# PriSpecify the file to write to
+output_path = os.path.join("..", "output", "new.csv")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w', newline='') as csvfile:
+
+    # Initialize csv.writer
+    csvwriter = csv.writer(csvfile, delimiter=',')
+
+    # Write the first row (column headers)
+    csvwriter.writerow(['First Name', 'Last Name', 'SSN'])
+
+    # Write the second row
+    csvwriter.writerow(['Caleb', 'Frost', '505-80-2901'])
 
 
 
