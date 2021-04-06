@@ -64,34 +64,42 @@ with open(electiondata_inputpath) as electiondata_handler:
 		winning_candidate = {"Khan":khan_votes, "Correy":correy_votes, "Li":li_votes, "O'Tooley":otooley_votes}
 		winner = max(winning_candidate, key=winning_candidate.get)
 
+def pypoll():
+	print(f"Election Results")
+	print(f"-----------------------")
+	print(f"Total Votes: {total_votes}")
+	print(f"-----------------------")
+	print(f"Khan: {khan_ratio}% ({khan_votes})")
+	print(f"Correy: {correy_ratio}% ({correy_votes})")
+	print(f"Li: {li_ratio}% ({li_votes})")
+	print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})")
+	print(f"-----------------------")
+	print(f"Winner: {winner}")
+	print(f"-----------------------")
+pypoll()
 
-print(f"Election Results")
-print(f"-----------------------")
-print(f"Total Votes: {total_votes}")
-print(f"-----------------------")
-print(f"Khan: {khan_ratio}% ({khan_votes})")
-print(f"Correy: {correy_ratio}% ({correy_votes})")
-print(f"Li: {li_ratio}% ({li_votes})")
-print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})")
-print(f"-----------------------")
-print(f"Winner: {winner}")
-print(f"-----------------------")
-
-
-# PriSpecify the file to write to
-output_path = os.path.join("..", "output", "new.csv")
-
+# File to write to:
+output_path = os.path.join("Analysis", "ElectionResults.txt")
 # Open the file using "write" mode. Specify the variable to hold the contents
-with open(output_path, 'w', newline='') as csvfile:
+with open(output_path, 'w', newline='') as txthandler:
+	# Initialize csv.writer
+	csvwriter = csv.writer(txthandler, delimiter=',')
+	# Write all rows 
+	csvwriter =csv.writer(pypoll())
 
-    # Initialize csv.writer
-    csvwriter = csv.writer(csvfile, delimiter=',')
+	# csvwriter.writerow(print(f"Election Results"))
+	# csvwriter.writerow(print(f"-----------------------"))
+	# csvwriter.writerow(print(f"Total Votes: {total_votes}"))
+	# csvwriter.writerow(print(f"-----------------------"))
+	# csvwriter.writerow(print(f"Khan: {khan_ratio}% ({khan_votes})"))
+	# csvwriter.writerow(print(f"Correy: {correy_ratio}% ({correy_votes})"))
+	# csvwriter.writerow(print(f"Li: {li_ratio}% ({li_votes})"))
+	# csvwriter.writerow(print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})"))
+	# csvwriter.writerow(print(f"-----------------------"))
+	# csvwriter.writerow(print(f"Winner: {winner}"))
+	# csvwriter.writerow(print(f"-----------------------"))
 
-    # Write the first row (column headers)
-    csvwriter.writerow(['First Name', 'Last Name', 'SSN'])
-
-    # Write the second row
-    csvwriter.writerow(['Caleb', 'Frost', '505-80-2901'])
+    
 
 
 
