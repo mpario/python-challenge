@@ -19,10 +19,7 @@ budgetdata_path = os.path.join('Resources', 'budget_data.csv')
 
 #empty list to store data
 date = []
-# total_month_count = []
 prof_loss = []
-# net_total = []
-# change = []
 prof_change = []
 prof_change_mod = []
 
@@ -34,10 +31,10 @@ with open(budgetdata_path) as budgetdata_handler:
 	budgetdata_header = next(budgetdata_object)
 
 	for row in budgetdata_object:
-		#Total Months
+	#Total Months
 		date.append(row[0])
 		total_month_count = len(date)
-		#Total
+	#Total
 		prof_loss.append(int(row[1]))
 		net_total = sum(prof_loss)
 	
@@ -53,109 +50,16 @@ with open(budgetdata_path) as budgetdata_handler:
 		maxval = max(prof_change)
 		minval = min(prof_change)
 
-
 	#Corresponding Dates
 	prof_change_mod = deque(prof_change)
 	prof_change_mod.appendleft(1)
-	combolist = dict(zip(date, prof_change_mod))
-	print(combolist)
+	combolist = dict(zip(prof_change_mod, date))
 	
-
-
-	# print(combolist)
-
-	# def convert(combolist):
-	# 	it = iter(combolist)
-	# 	res_dct = dict(zip(it, it + 1))
-	# 	return res_dct
-
-	# 	print(combolist)
-
-	# for row in range(len(prof_change)):
-	# 	maxloc = max(prof_change)
-	# 	#minloc = len(min(prof_change[row + 1]))
-	# 	print(maxloc)
-
-
-	# for row in range(len(date)):
-	# 	greatinc = date[maxloc]
-	# 	greatdec = date[minloc]
-
-
-	
-
-	# reader = csv.DictReader(budgetdata_handler)
-	# for row in reader:
-	# 	if(maxval in budgetdata_object):
-	# 		print(budgetdata_object[0])
-	
-
-	
-		# reader.get(maxval)
-		# reader.get(minval)
-
-		# print(row['Date'],row['Profit/Losses'])
-		# print(row)
-			# minval_key = get_key(minval)
-
-
-
-
-		#print(maxval)
-		# print(prof_change.min)
-
-		# max = prof_change.sort()
-		# print(maxval)
-		
-
-
-
-		# for row in prof_change:
-		# 	valuemax = prof_change[0]
-		# 	print(value)
-		# 	print(value.min)
-
-			# if value < value + 1
-			# 	print(value + 1)
-			# else
-			# 	print(value)
-
-
-			# if row > row + 1
-			# print(prof_change.max)
-			# print(prof_change.min)
-
-
-		#	pass
-		#else
-		#	prof_row
-
-		#if (prof_row < prof_row+1):
-		#	prof_change = 
-		#elif(prof_row > prof_row+1):
-		#	pass
-		#else
-		#	prof_row
-
-		#Greatest Increase in Profits
-
-		#Greatest Decrease in Profits
 
 print(f"Financial Analysis")
 print(f"--------------------------------")
 print(f"Total Months: {total_month_count}")
-print(f"Total: {net_total}")
-print(f"Average Change: {average_change}")
-print(f"Greatest Increase in Profits: {maxval}")
-print(f"Greatest Decrease in Profits: {minval}")
-
-
-#		total_month_count = len(date_count)
-
-#		'fin_rec'.count()
-
-#fin_rec_df["Date"].value_counts()
-#print(f"Total months: {total_month_count}")
-
-
-
+print(f"Total: ${net_total}")
+print(f"Average Change: ${average_change}")
+print(f"Greatest Increase in Profits: {combolist[maxval]} (${maxval})")
+print(f"Greatest Decrease in Profits: {combolist[minval]} (${minval})")
