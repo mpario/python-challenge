@@ -13,6 +13,7 @@
 import os
 import csv
 from csv import DictReader
+from collections import deque
 
 budgetdata_path = os.path.join('Resources', 'budget_data.csv')
 
@@ -23,6 +24,7 @@ prof_loss = []
 # net_total = []
 # change = []
 prof_change = []
+prof_change_mod = []
 
 
 #open and read csv file
@@ -51,10 +53,28 @@ with open(budgetdata_path) as budgetdata_handler:
 		maxval = max(prof_change)
 		minval = min(prof_change)
 
+
 	#Corresponding Dates
-	for	row in range(len(prof_change)):
-		maxpoc = len(max(prof_change[row + 1]))
-		minloc = len(min(prof_change[row + 1]))
+	prof_change_mod = deque(prof_change)
+	prof_change_mod.appendleft(1)
+	combolist = dict(zip(date, prof_change_mod))
+	print(combolist)
+	
+
+
+	# print(combolist)
+
+	# def convert(combolist):
+	# 	it = iter(combolist)
+	# 	res_dct = dict(zip(it, it + 1))
+	# 	return res_dct
+
+	# 	print(combolist)
+
+	# for row in range(len(prof_change)):
+	# 	maxloc = max(prof_change)
+	# 	#minloc = len(min(prof_change[row + 1]))
+	# 	print(maxloc)
 
 
 	# for row in range(len(date)):
