@@ -18,10 +18,10 @@ budgetdata_path = os.path.join('Resources', 'budget_data.csv')
 
 #empty list to store data
 date = []
-total_month_count = []
+# total_month_count = []
 prof_loss = []
-net_total = []
-change = []
+# net_total = []
+# change = []
 prof_change = []
 
 
@@ -51,10 +51,22 @@ with open(budgetdata_path) as budgetdata_handler:
 		maxval = max(prof_change)
 		minval = min(prof_change)
 
-	reader = csv.DictReader(budgetdata_handler)
-	for row in reader:
-		if(maxval in budgetdata_object[1]):
-			print(budgetdata_object[0])
+	#Corresponding Dates
+	for	row in range(len(prof_change)):
+		maxpoc = len(max(prof_change[row + 1])
+
+
+	# for row in range(len(date)):
+	# 	greatinc = date[maxloc]
+	# 	greatdec = date[minloc]
+
+
+	
+
+	# reader = csv.DictReader(budgetdata_handler)
+	# for row in reader:
+	# 	if(maxval in budgetdata_object):
+	# 		print(budgetdata_object[0])
 	
 
 	
