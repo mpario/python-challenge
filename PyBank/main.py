@@ -12,6 +12,7 @@
 
 import os
 import csv
+from csv import DictReader
 
 budgetdata_path = os.path.join('Resources', 'budget_data.csv')
 
@@ -21,9 +22,7 @@ total_month_count = []
 prof_loss = []
 net_total = []
 change = []
-
 prof_change = []
-# average_change = []
 
 
 #open and read csv file
@@ -47,10 +46,28 @@ with open(budgetdata_path) as budgetdata_handler:
 		net_prof = sum(prof_change)
 		average_change = round(net_prof / len(prof_change), 2)
 
-	#Greatest Increase/Decrease in Profits
+	#Greatest Increase/Decrease in Profit
 	for row in range(len(prof_change)):
 		maxval = max(prof_change)
-		minval = min(prof_change)		
+		minval = min(prof_change)
+
+	reader = csv.DictReader(budgetdata_handler)
+	for row in reader:
+		if(maxval in budgetdata_object[1]):
+			print(budgetdata_object[0])
+	
+
+	
+		# reader.get(maxval)
+		# reader.get(minval)
+
+		# print(row['Date'],row['Profit/Losses'])
+		# print(row)
+			# minval_key = get_key(minval)
+
+
+
+
 		#print(maxval)
 		# print(prof_change.min)
 
