@@ -53,7 +53,8 @@ with open(budgetdata_path) as budgetdata_handler:
 
 	#Corresponding Dates
 	for	row in range(len(prof_change)):
-		maxpoc = len(max(prof_change[row + 1])
+		maxpoc = len(max(prof_change[row + 1]))
+		minloc = len(min(prof_change[row + 1]))
 
 
 	# for row in range(len(date)):
