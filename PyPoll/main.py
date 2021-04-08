@@ -79,7 +79,7 @@ with open(electiondata_inputpath) as electiondata_handler:
 
 
 # File to write to:
-output_path = os.path.join("Analysis", "ElectionResults.txt")
+output_path = os.path.join("Analysis", "PyPollResults.txt")
 with open(output_path, 'w', newline='') as txthandler:
 	txthandler.write(f"Election Results\n")
 	txthandler.write(f"-----------------------\n")
