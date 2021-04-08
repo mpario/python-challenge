@@ -64,7 +64,6 @@ with open(electiondata_inputpath) as electiondata_handler:
 		winning_candidate = {"Khan":khan_votes, "Correy":correy_votes, "Li":li_votes, "O'Tooley":otooley_votes}
 		winner = max(winning_candidate, key=winning_candidate.get)
 
-def pypoll():
 	print(f"Election Results")
 	print(f"-----------------------")
 	print(f"Total Votes: {total_votes}")
@@ -76,26 +75,25 @@ def pypoll():
 	print(f"-----------------------")
 	print(f"Winner: {winner}")
 	print(f"-----------------------")
-pypoll()
+
 
 # File to write to:
 output_path = os.path.join("Analysis", "ElectionResults.txt")
 with open(output_path, 'w', newline='') as txthandler:
 	# Initialize csv.writer
-	csvwriter = csv.writer(txthandler, delimiter=',')
-	csvwriter = csvwriter.writerow(str(pypoll()))
+	# csvwriter = csv.writer(txthandler, delimiter='')
 
-# 	csvwriter.write(print(f"Election Results"))
-# 	csvwriter.write(print(f"-----------------------"))
-# 	csvwriter.write(print(f"Total Votes: {total_votes}"))
-# 	csvwriter.write(print(f"-----------------------"))
-# 	csvwriter.write(print(f"Khan: {khan_ratio}% ({khan_votes})"))
-# 	csvwriter.write(print(f"Correy: {correy_ratio}% ({correy_votes})"))
-# 	csvwriter.write(print(f"Li: {li_ratio}% ({li_votes})"))
-# 	csvwriter.write(print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})"))
-# 	csvwriter.write(print(f"-----------------------"))
-# 	csvwriter.write(print(f"Winner: {winner}"))
-# 	csvwriter.write(print(f"-----------------------"))
+	txthandler.write(f"Election Results\n")
+	txthandler.write(f"-----------------------\n")
+	txthandler.write(f"Total Votes: {total_votes}\n")
+	txthandler.write(f"-----------------------\n")
+	txthandler.write(f"Khan: {khan_ratio}% ({khan_votes})\n")
+	txthandler.write(f"Correy: {correy_ratio}% ({correy_votes})\n")
+	txthandler.write(f"Li: {li_ratio}% ({li_votes})\n")
+	txthandler.write(f"O'Tooley: {otooley_ratio}% ({otooley_votes})\n")
+	txthandler.write(f"-----------------------\n")
+	txthandler.write(f"Winner: {winner}\n")
+	txthandler.write(f"-----------------------\n")
 
 # # File to write to:
 # 	output_path = os.path.join("Analysis", "ElectionResults.txt")
