@@ -15,7 +15,7 @@ import csv
 
 electiondata_inputpath = os.path.join('Resources', 'election_data.csv')
 
-#empty list to store data
+#Empty list to store data
 voter_id = []
 candidate = []
 khan_count = []
@@ -23,25 +23,25 @@ correy_count = []
 li_count = []
 otooley_count = []
 
-#initialized variables
+#Initialized variables
 khan_votes = 0
 correy_votes = 0
 li_votes = 0
 otooley_votes = 0
 
 
-#open and read csv file
+#Open and read csv file
 with open(electiondata_inputpath) as electiondata_handler:
 	#when a command is made, electiondata_object will pass it in a list (separated by commas)
 	electiondata_object = csv.reader(electiondata_handler, delimiter=',')
 	electiondata_header = next(electiondata_object)
 
 	for row in electiondata_object:
-		# Total Votes
+		#Total Votes
 		voter_id.append(row[0])
 		total_votes = len(voter_id)
 		
-		# Per Candidate
+		#Per Candidate
 		candidate.append([row[2]])
 		if (row[2] == "Khan"):
 			khan_count.append(candidate)
@@ -64,6 +64,7 @@ with open(electiondata_inputpath) as electiondata_handler:
 		winning_candidate = {"Khan":khan_votes, "Correy":correy_votes, "Li":li_votes, "O'Tooley":otooley_votes}
 		winner = max(winning_candidate, key=winning_candidate.get)
 
+	#Output
 	print(f"Election Results")
 	print(f"-----------------------")
 	print(f"Total Votes: {total_votes}")
@@ -80,9 +81,6 @@ with open(electiondata_inputpath) as electiondata_handler:
 # File to write to:
 output_path = os.path.join("Analysis", "ElectionResults.txt")
 with open(output_path, 'w', newline='') as txthandler:
-	# Initialize csv.writer
-	# csvwriter = csv.writer(txthandler, delimiter='')
-
 	txthandler.write(f"Election Results\n")
 	txthandler.write(f"-----------------------\n")
 	txthandler.write(f"Total Votes: {total_votes}\n")
@@ -95,23 +93,6 @@ with open(output_path, 'w', newline='') as txthandler:
 	txthandler.write(f"Winner: {winner}\n")
 	txthandler.write(f"-----------------------\n")
 
-# # File to write to:
-# 	output_path = os.path.join("Analysis", "ElectionResults.txt")
-# 	with open(output_path, 'w', newline='') as txthandler:
-# 		csvwriter = csv.writer(txthandler, delimiter=',')
-		
-# 		csvwriter.write(print(f"Election Results"))
-# 		csvwriter.write(print(f"-----------------------"))
-# 		csvwriter.write(print(f"Total Votes: {total_votes}"))
-# 		csvwriter.write(print(f"-----------------------"))
-# 		csvwriter.write(print(f"Khan: {khan_ratio}% ({khan_votes})"))
-# 		csvwriter.write(print(f"Correy: {correy_ratio}% ({correy_votes})"))
-# 		csvwriter.write(print(f"Li: {li_ratio}% ({li_votes})"))
-# 		csvwriter.write(print(f"O'Tooley: {otooley_ratio}% ({otooley_votes})"))
-# 		csvwriter.write(print(f"-----------------------"))
-# 		csvwriter.write(print(f"Winner: {winner}"))
-# 		csvwriter.write(print(f"-----------------------"))
-    
 
 
 

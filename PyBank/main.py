@@ -12,7 +12,7 @@
 
 import os
 import csv
-from csv import DictReader
+# from csv import DictReader
 from collections import deque
 
 budgetdata_path = os.path.join('Resources', 'budget_data.csv')
@@ -55,7 +55,7 @@ with open(budgetdata_path) as budgetdata_handler:
 	prof_change_mod.appendleft(1)
 	combolist = dict(zip(prof_change_mod, date))
 	
-
+#Output
 print(f"Financial Analysis")
 print(f"--------------------------------")
 print(f"Total Months: {total_month_count}")
@@ -63,3 +63,16 @@ print(f"Total: ${net_total}")
 print(f"Average Change: ${average_change}")
 print(f"Greatest Increase in Profits: {combolist[maxval]} (${maxval})")
 print(f"Greatest Decrease in Profits: {combolist[minval]} (${minval})")
+
+# File to write to:
+output_path = os.path.join("Analysis", "PyBankResults.txt")
+with open(output_path, 'w', newline='') as txthandler:
+	txthandler.write(f"Financial Analysis\n")
+	txthandler.write(f"--------------------------------\n")
+	txthandler.write(f"Total Months: {total_month_count}\n")
+	txthandler.write(f"Total: ${net_total}\n")
+	txthandler.write(f"Average Change: ${average_change}\n")
+	txthandler.write(f"Greatest Increase in Profits: {combolist[maxval]} (${maxval})\n")
+	txthandler.write(f"Greatest Decrease in Profits: {combolist[minval]} (${minval})\n")
+
+
